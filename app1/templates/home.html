@@ -1,0 +1,257 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Portfolio | Python Full Stack Developer</title>
+
+    <meta name="description"
+          content="My personal portfolio showcasing my skills, projects, and professional experience.">
+
+    <link rel="stylesheet" href="{% static 'app1/style.css' %}">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <h2 class="logo">MyPortfolio</h2>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+
+        <img src="{% static 'app1/images/profile.jpg' %}"
+             alt="My Profile Photo"
+             class="profile-photo">
+
+        <p class="welcome">WELCOME TO MY PORTFOLIO</p>
+
+        <h1>Hello, I'm <span>Vedansh Shukla</span></h1>
+
+        <h3>Python Full Stack Developer</h3>
+
+        <p>
+            Web Development | Marketing and Sales Professional | Tech Sales
+        </p>
+
+        <a href="#projects" class="btn">View My Projects</a>
+        <a href="#contact" class="btn">Contact Me</a>
+
+    </section>
+
+   <!-- About Section -->
+<section id="about" class="section">
+
+    <h2>About Me</h2>
+
+    <p>
+        Hello! I am a technology enthusiast interested in Python,
+        Django, full-stack web development, marketing, and sales.
+        I enjoy learning new technologies and creating useful
+        digital solutions. I aim to combine my technical and
+        communication skills to solve real-world problems.
+    </p>
+
+</section>
+
+<!-- Experience Section -->
+<section id="experience" class="section">
+
+    <h2>Professional Experience</h2>
+
+    <p class="experience-intro">
+        My professional journey, combining technology,
+        business development, marketing, and sales.
+    </p>
+
+    <div class="experience-card">
+        <h3>Business Development / Tech Sales (Intern)</h3>
+        <h4>BrioSync</h4>
+        <p class="experience-duration">Sep 2026 – Present</p>
+
+        <ul>
+            <li>Develop relationships with clients and business partners.</li>
+            <li>Identify business opportunities and support sales growth.</li>
+            <li>Understand customer requirements and recommend technology solutions.</li>
+        </ul>
+    </div>
+
+    <div class="experience-card">
+        <h3>Automation Developer (Intern)</h3>
+        <h4>Hyrefox Consultants Ltd.</h4>
+        <p class="experience-duration">Jun 2026 – Aug 2026</p>
+
+        <ul>
+            <li>Developed Automation Projects</li>
+            <li>Developed Universal Marketing Automation System</li>
+            <li>Communicate with prospective Clients.</li>
+        </ul>
+    </div>
+
+    <div class="experience-card">
+        <h3>Software Developer (Intern)</h3>
+        <h4>Lucenta Solutions Ltd.</h4>
+        <p class="experience-duration">Oct 2025 – Dec 2025</p>
+
+        <ul>
+            <li>Developed Frontend and Backend Projects</li>
+            <li>Communicate with prospective Clients and Developing Teams.</li>
+        </ul>
+    </div>
+
+</section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+
+        <h2>My Skills</h2>
+
+        <div class="skills">
+            <span>Python</span>
+            <span>Django</span>
+             <span>Flask</span>
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>Web Development</span>
+            <span>Business Development</span>
+            <span>Software as a Service (SaaS)</span>
+            <span>Marketing Analysis</span>
+            <span>Tech Sales</span>
+            <span>Build Automation</span>
+            <span>Enterprise Resource Planning (ERP)</span>
+            <span>Communication</span>
+        </div>
+
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+
+        <h2>My Projects</h2>
+
+        <div class="project-card">
+            <h3>Personal Portfolio Website</h3>
+
+            <p>
+                A personal portfolio website developed using
+                Python, Django, HTML, and CSS to showcase my
+                skills, projects, and professional background.
+            </p>
+
+            <a href="https://github.com/"
+               target="_blank"
+               rel="noopener noreferrer">
+                View on GitHub →
+            </a>
+        </div>
+
+        <div class="project-card">
+            <h3>Python Project</h3>
+
+            <p>
+                This section is for another Python project.
+                Add your project description and repository
+                link when your project is ready.
+            </p>
+
+            <a href="https://github.com/"
+               target="_blank"
+               rel="noopener noreferrer">
+                Explore GitHub →
+            </a>
+        </div>
+
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+
+        <h2>Contact Me</h2>
+
+        <p>
+            Interested in working together or discussing an opportunity?
+            Feel free to send me a message.
+        </p>
+
+        <!-- Display Django success or error messages -->
+        {% if messages %}
+            {% for message in messages %}
+                <p class="success-message">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+
+        <!-- Contact Form -->
+        <form action="{% url 'contact' %}"
+              method="POST"
+              class="contact-form">
+
+            {% csrf_token %}
+
+            <input type="text"
+                   name="name"
+                   placeholder="Your Name"
+                   maxlength="100"
+                   required>
+
+            <input type="email"
+                   name="email"
+                   placeholder="Your Email Address"
+                   required>
+
+            <textarea name="message"
+                      placeholder="Write your message here..."
+                      rows="5"
+                      required></textarea>
+
+            <button type="submit" class="btn">
+                Send Message
+            </button>
+
+        </form>
+
+        <!-- Social Links -->
+        <div class="social-links">
+
+            <a href="https://github.com/"
+               target="_blank"
+               rel="noopener noreferrer">
+                GitHub
+            </a>
+
+            <a href="https://www.linkedin.com/"
+               target="_blank"
+               rel="noopener noreferrer">
+                LinkedIn
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+        <footer>
+        <p>
+            &copy; 2026 Vedansh Shukla. All rights reserved.
+        </p>
+    </footer>
+
+    <button id="backToTop" type="button" aria-label="Back to top">
+    ↑
+    </button>
+
+<script src="{% static 'app1/script.js' %}" defer></script>
+
+</body>
+</html>
